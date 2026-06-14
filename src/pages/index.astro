@@ -1,0 +1,36 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import LoadingScreen from '../components/sections/LoadingScreen.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import ExperienceTimeline from '../components/sections/ExperienceTimeline.astro';
+import ImpactNumbers from '../components/sections/ImpactNumbers.astro';
+import Skills from '../components/sections/Skills.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<Layout
+  title="Debjyoti Paul — Staff Software Engineer"
+  description="Staff Software Engineer with 9+ years of experience building scalable payment systems and web applications at VISA Inc. Expert in React, Java, Node.js, and micro-frontends."
+>
+  <LoadingScreen />
+  <Hero />
+  <About />
+  <ExperienceTimeline />
+  <ImpactNumbers />
+  <Skills />
+  <Contact />
+</Layout>
+
+<script>
+  import { refreshScrollTrigger } from '../scripts/lenis-gsap';
+
+  // After fonts load and all section scripts register their ScrollTriggers,
+  // refresh once to recalculate all scroll positions accurately.
+  document.fonts.ready.then(() => {
+    // Small delay to ensure all section scripts have run
+    setTimeout(() => {
+      refreshScrollTrigger();
+    }, 100);
+  });
+</script>

@@ -1,0 +1,162 @@
+---
+const skillGroups = [
+  {
+    label: 'Frontend',
+    skills: ['ReactJS', 'Angular 2+', 'AngularJS', 'Vue', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Redux', 'Webpack 5', 'Micro-frontends', 'SCSS'],
+  },
+  {
+    label: 'Backend',
+    skills: ['Java', 'Spring Boot', 'Hibernate', 'Node.js', 'MySQL', 'REST APIs', 'Microservices'],
+  },
+  {
+    label: 'Tools & Practices',
+    skills: ['Git', 'CI/CD', 'Unit Testing', 'Accessibility (AA/AAA)', 'Jasmine', 'Karma', 'Mocha', 'Cloud Computing', 'GEN-AI', 'AI Agents'],
+  },
+];
+---
+
+<section id="skills" aria-label="Technical Skills">
+  <div class="skills-inner">
+    <div class="section-eyebrow">
+      <span class="eyebrow-line" aria-hidden="true"></span>
+      <span>Skills</span>
+    </div>
+
+    <h2 data-skills-heading>
+      Technologies I<br />Work With
+    </h2>
+
+    <div class="skills-groups">
+      {skillGroups.map((group) => (
+        <div class="skill-group" data-skill-group>
+          <h3 class="skill-group-label" data-skill-group-label>{group.label}</h3>
+          <div class="skill-pills" role="list" aria-label={`${group.label} skills`}>
+            {group.skills.map((skill) => (
+              <span class="skill-pill" data-skill-pill role="listitem">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #skills {
+    padding-block: clamp(5rem, 12vh, 8rem);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .skills-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: clamp(3rem, 6vh, 4rem);
+  }
+
+  .skills-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .skill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-group-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* CSS shimmer on hover */
+  .skill-pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(124, 58, 237, 0.2) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0s;
+  }
+
+  .skill-pill:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-light);
+  }
+
+  .skill-pill:hover::before {
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-pill::before {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { initSkillsAnimations } from '../../scripts/skills-animations';
+  initSkillsAnimations();
+</script>

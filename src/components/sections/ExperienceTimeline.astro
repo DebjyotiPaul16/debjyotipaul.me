@@ -1,0 +1,284 @@
+---
+const experiences = [
+  {
+    company: 'VISA Inc',
+    role: 'Staff Software Engineer',
+    period: 'Feb 2020 — Present',
+    location: 'Bengaluru, India',
+    color: '#1A1FE8',
+    highlights: [
+      'Developing AI agents for workflow automation and GEN-AI productivity tooling',
+      'Led Visa Direct portal (React + SCSS + Webpack 5 micro-frontend) — revenue grew from $100M to $300M',
+      'Modernized Visa Payments Limited: rewrote legacy JSP to React + Java 17 + MySQL',
+      'Engineered FX management services for cross-border transfers — 40% faster transaction speed',
+    ],
+  },
+  {
+    company: 'Netradyne Technology',
+    role: 'Senior Software Engineer',
+    period: 'Oct 2018 — Jan 2020',
+    location: 'Bengaluru, India',
+    color: '#7C3AED',
+    highlights: [
+      'Built scalable UIs for Driveri, a vision-based driver safety product — 40% usability improvement',
+      'Led cloud dashboard migration from AngularJS to Angular 2+ and React with Redux',
+      'Designed 15+ features and API structures — 30% improvement in system response time',
+    ],
+  },
+  {
+    company: 'LearningMate Solutions',
+    role: 'Software Engineer',
+    period: 'Jan 2016 — Sep 2018',
+    location: 'Bengaluru, India',
+    color: '#3B82F6',
+    highlights: [
+      'Built 50+ AA/AAA accessible components for Pearson\'s SuccessMaker adaptive learning product',
+      'Led modernization of McGraw-Hill legacy systems to Angular 5 + Object-Oriented JavaScript',
+      'Built a Node.js CLI tool for content automation — saved 2,000+ hours of manual effort',
+      'Published open-source npm package: Check Filename',
+    ],
+  },
+];
+---
+
+<section id="experience" aria-label="Work Experience" data-timeline-section>
+  <div class="timeline-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>Experience</span>
+      </div>
+      <h2 data-timeline-heading>
+        9 Years of<br />Impactful Work
+      </h2>
+    </div>
+
+    <div class="timeline-body">
+      <!-- Animated vertical line -->
+      <div class="timeline-track" aria-hidden="true">
+        <div class="timeline-line-bg"></div>
+        <div class="timeline-line" data-timeline-line></div>
+      </div>
+
+      <!-- Experience cards -->
+      <div class="timeline-cards">
+        {experiences.map((exp, i) => (
+          <article
+            class={`timeline-card timeline-card--${i % 2 === 0 ? 'left' : 'right'}`}
+            data-timeline-card
+          >
+            <div class="timeline-dot" aria-hidden="true" style={`background-color: ${exp.color}`}></div>
+
+            <div class="card-inner">
+              <div class="card-header">
+                <div class="card-company-wrap">
+                  <span class="card-company">{exp.company}</span>
+                  <span class="card-period">{exp.period}</span>
+                </div>
+                <h3 class="card-role">{exp.role}</h3>
+              </div>
+
+              <ul class="card-highlights" role="list">
+                {exp.highlights.map((item) => (
+                  <li data-timeline-bullet>
+                    <span class="bullet-dot" aria-hidden="true"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #experience {
+    padding-block: clamp(5rem, 12vh, 8rem);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .timeline-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: clamp(3rem, 6vh, 5rem);
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .timeline-body {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 2rem;
+  }
+
+  .timeline-track {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .timeline-line-bg,
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+  }
+
+  .timeline-line-bg {
+    background-color: var(--color-border);
+  }
+
+  .timeline-line {
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-alt));
+    transform-origin: top center;
+    /* scaleY animated via GSAP */
+  }
+
+  .timeline-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 0.5rem;
+  }
+
+  .timeline-card {
+    position: relative;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: calc(-2rem - 24px + 1px);
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+  }
+
+  .card-inner {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .card-inner:hover {
+    border-color: var(--color-accent);
+  }
+
+  .card-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .card-company-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-company {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    font-weight: 500;
+  }
+
+  .card-period {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .card-role {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+
+  .card-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-muted-light);
+  }
+
+  .bullet-dot {
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    margin-top: 0.55em;
+  }
+
+  @media (max-width: 640px) {
+    .timeline-body {
+      grid-template-columns: 24px 1fr;
+      gap: 0 1rem;
+    }
+
+    .timeline-dot {
+      left: calc(-1rem - 12px + 1px);
+      width: 10px;
+      height: 10px;
+    }
+  }
+</style>
+
+<script>
+  import { initTimelineAnimations } from '../../scripts/timeline-animations';
+  initTimelineAnimations();
+</script>

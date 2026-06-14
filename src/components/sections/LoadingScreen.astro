@@ -1,0 +1,104 @@
+---
+---
+
+<div id="loading-screen" aria-hidden="true">
+  <div id="loading-content">
+    <div id="loading-monogram">DP</div>
+    <div id="loading-counter-wrap">
+      <span id="loading-counter">000</span>
+      <span id="loading-label">Loading</span>
+    </div>
+  </div>
+  <div id="loading-curtain"></div>
+</div>
+
+<style>
+  #loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    overflow: hidden;
+  }
+
+  #loading-curtain {
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg);
+    z-index: 2;
+  }
+
+  #loading-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: var(--color-bg);
+  }
+
+  #loading-monogram {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+
+  #loading-counter-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #loading-counter {
+    font-family: var(--font-mono);
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    transition: none;
+  }
+
+  #loading-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  /* Skip loading screen for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    #loading-screen {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { initLoadingScreen } from '../../scripts/loading-screen';
+  import { refreshScrollTrigger } from '../../scripts/lenis-gsap';
+
+  // Skip loading screen if reduced motion is preferred
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Pause Lenis during loading
+    const w = window as typeof window & { _lenis: { stop: () => void; start: () => void } };
+    w._lenis?.stop();
+
+    initLoadingScreen(() => {
+      w._lenis?.start();
+      refreshScrollTrigger();
+    });
+  } else {
+    // Remove loading screen immediately and dispatch event
+    const el = document.getElementById('loading-screen');
+    el?.remove();
+    window.dispatchEvent(new CustomEvent('loading-complete'));
+  }
+</script>

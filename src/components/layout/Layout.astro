@@ -1,0 +1,44 @@
+---
+import BaseHead from './BaseHead.astro';
+import CustomCursor from '../ui/CustomCursor.astro';
+import '../../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <!-- Custom cursor (hidden on touch/reduced-motion via CSS) -->
+    <CustomCursor />
+
+    <!-- Page content -->
+    <slot />
+
+    <!-- Core: Lenis + ScrollTrigger wiring — must run before section animations -->
+    <script>
+      import { lenis } from '../../scripts/lenis-gsap';
+      import { initCursor } from '../../scripts/cursor';
+      import { initMagneticButtons } from '../../scripts/magnetic-button';
+
+      // Cursor initializes immediately
+      initCursor();
+
+      // Expose lenis globally so loading-screen.ts can stop/start it
+      (window as typeof window & { _lenis: typeof lenis })._lenis = lenis;
+
+      // Magnetic buttons init after DOM is ready
+      document.addEventListener('DOMContentLoaded', () => {
+        initMagneticButtons();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+---
+---
+
+<section id="about" aria-label="About Debjyoti Paul">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>About</span>
+      </div>
+
+      <h2 data-about-heading>
+        Crafting Experiences<br />at Scale
+      </h2>
+
+      <p data-about-bio class="about-bio">
+        I'm a Staff Software Engineer with over 9 years of experience building
+        scalable, user-first web applications. At VISA Inc, I lead development
+        on payment flow products that process millions of cross-border
+        transactions daily — including Visa Direct and Visa Payments Limited.
+        I'm passionate about leveraging new technologies, including AI and
+        generative tools, to create impactful software that makes a real
+        difference. I believe great engineering is equal parts craft, empathy,
+        and relentless attention to detail.
+      </p>
+
+      <div class="about-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Bengaluru, India</span>
+      </div>
+    </div>
+
+    <div class="about-right" data-about-stats aria-label="Career highlights">
+      <div class="stats-card">
+        <div class="stats-grid">
+          <div class="stat-item" data-stat-item>
+            <span class="stat-number">9+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item" data-stat-item>
+            <span class="stat-number">3</span>
+            <span class="stat-label">Companies</span>
+          </div>
+          <div class="stat-item" data-stat-item>
+            <span class="stat-number">Full</span>
+            <span class="stat-label">Stack Engineer</span>
+          </div>
+          <div class="stat-item" data-stat-item>
+            <span class="stat-number">M.Tech</span>
+            <span class="stat-label">BITS Pilani</span>
+          </div>
+        </div>
+
+        <div class="stats-links">
+          <a
+            href="https://www.linkedin.com/in/debjyoti-paul-2b4b05a5"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="stats-link"
+            data-cursor="open"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a
+            href="mailto:debjyoti.paul1993@gmail.com"
+            class="stats-link"
+            data-cursor="open"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #about {
+    padding-block: clamp(5rem, 12vh, 8rem);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 8vw, 6rem);
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: 1.75rem;
+  }
+
+  .about-bio {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.85;
+    color: var(--color-muted-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  .stats-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-number {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--color-accent-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .stats-links {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .stats-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-muted-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .stats-link:hover {
+    color: var(--color-accent-light);
+  }
+
+  @media (max-width: 768px) {
+    .about-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-card {
+      position: static;
+    }
+  }
+</style>
+
+<script>
+  import { initAboutAnimations } from '../../scripts/about-animations';
+  initAboutAnimations();
+</script>

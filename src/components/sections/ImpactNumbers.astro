@@ -1,0 +1,180 @@
+---
+const metrics = [
+  {
+    target: 300,
+    prefix: '$',
+    suffix: 'M',
+    label: 'Revenue Contribution',
+    description: 'Visa Direct portal revenue grew from $100M to $300M',
+    icon: '📈',
+  },
+  {
+    target: 40,
+    suffix: '%',
+    label: 'Transaction Speed Gain',
+    description: 'FX management service improvement for cross-border transfers',
+    icon: '⚡',
+  },
+  {
+    target: 2000,
+    suffix: '+',
+    label: 'Hours Saved',
+    description: 'Via Node.js CLI tool for content conversion automation',
+    icon: '⏱',
+  },
+  {
+    target: 50,
+    suffix: '+',
+    label: 'Components Built',
+    description: 'Production-grade accessible components across projects',
+    icon: '🧩',
+  },
+];
+---
+
+<section id="impact" aria-label="Impact & Metrics">
+  <div class="impact-inner">
+    <div class="section-eyebrow">
+      <span class="eyebrow-line" aria-hidden="true"></span>
+      <span>Impact</span>
+    </div>
+
+    <h2 data-impact-heading>
+      Numbers That<br />Tell the Story
+    </h2>
+
+    <div class="impact-grid">
+      {metrics.map((metric) => (
+        <div class="impact-card" data-impact-card>
+          <div class="impact-icon" aria-hidden="true">{metric.icon}</div>
+          <div
+            class="impact-number"
+            data-counter
+            data-target={metric.target}
+            data-prefix={metric.prefix ?? ''}
+            data-suffix={metric.suffix ?? ''}
+            aria-label={`${metric.prefix ?? ''}${metric.target}${metric.suffix ?? ''} ${metric.label}`}
+          >
+            {metric.prefix ?? ''}{metric.prefix ? '0' : '0'}{metric.suffix ?? ''}
+          </div>
+          <div class="impact-label">{metric.label}</div>
+          <p class="impact-desc">{metric.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #impact {
+    padding-block: clamp(5rem, 12vh, 8rem);
+    border-top: 1px solid var(--color-border);
+    background: linear-gradient(
+      180deg,
+      var(--color-bg) 0%,
+      rgba(124, 58, 237, 0.04) 50%,
+      var(--color-bg) 100%
+    );
+  }
+
+  .impact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: clamp(3rem, 6vh, 4rem);
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .impact-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .impact-card:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    transform: translateY(-4px);
+  }
+
+  .impact-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .impact-number {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .impact-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: 0.01em;
+  }
+
+  .impact-desc {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 640px) {
+    .impact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .impact-card {
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+  }
+</style>
+
+<script>
+  import { initImpactCounters } from '../../scripts/impact-counter';
+  initImpactCounters();
+</script>

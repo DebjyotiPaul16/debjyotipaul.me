@@ -1,0 +1,264 @@
+---
+---
+
+<section id="hero" aria-label="Introduction">
+  <!-- Spline 3D background — lazy loaded after loading screen -->
+  <div id="spline-container" aria-hidden="true"></div>
+
+  <!-- Ambient gradient orb (fallback if Spline doesn't load) -->
+  <div class="hero-orb" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line" aria-hidden="true"></span>
+      <span class="hero-eyebrow-text">Staff Software Engineer</span>
+    </div>
+
+    <h1 data-hero-name aria-label="Debjyoti Paul">
+      Debjyoti<br />Paul
+    </h1>
+
+    <p data-hero-role class="hero-role">
+      Building the future of payments &amp; web at VISA
+    </p>
+
+    <p data-hero-tagline class="hero-tagline">
+      9 years of crafting scalable, user-first applications.<br />
+      React · Java · Node.js · Spring Boot · Micro-frontends.
+    </p>
+
+    <div class="hero-actions" data-hero-cta>
+      <a
+        href="#experience"
+        class="btn-primary"
+        data-magnetic
+        data-cursor="view"
+      >
+        View My Work
+      </a>
+      <a
+        href="mailto:debjyoti.paul1993@gmail.com"
+        class="btn-secondary"
+        data-magnetic
+        data-cursor="open"
+      >
+        Get in Touch
+      </a>
+    </div>
+
+    <div class="hero-scroll-hint" data-hero-scroll-hint aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  #hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #spline-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.7;
+  }
+
+  .hero-orb {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: clamp(400px, 60vw, 800px);
+    height: clamp(400px, 60vw, 800px);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(124, 58, 237, 0.25) 0%,
+      rgba(59, 130, 246, 0.1) 40%,
+      transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding-block: clamp(6rem, 15vh, 10rem);
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow-line {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
+
+  .hero-eyebrow-text {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  h1 {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    /* Each char needs perspective for rotationX animation */
+    perspective: 600px;
+  }
+
+  .hero-role {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    color: var(--color-accent-light);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    color: var(--color-muted-light);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    will-change: transform;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-light);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    will-change: transform;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-light);
+  }
+
+  .hero-scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero-scroll-hint span {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-line {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  import { initHeroAnimations } from '../../scripts/hero-animations';
+
+  // Hero animations trigger after loading screen completes
+  window.addEventListener('loading-complete', () => {
+    initHeroAnimations();
+
+    // Lazy load Spline after curtain lifts
+    if (
+      window.matchMedia('(prefers-reduced-motion: no-preference)').matches &&
+      window.innerWidth > 768
+    ) {
+      import('@splinetool/viewer').then(() => {
+        const container = document.getElementById('spline-container');
+        if (container) {
+          // Using Spline viewer web component
+          const viewer = document.createElement('spline-viewer');
+          // Spline scene URL — this is a placeholder; replace with actual Spline scene
+          viewer.setAttribute(
+            'url',
+            'https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode'
+          );
+          viewer.setAttribute('loading', 'lazy');
+          viewer.style.width = '100%';
+          viewer.style.height = '100%';
+          container.appendChild(viewer);
+        }
+      }).catch(() => {
+        // Spline failed to load — orb CSS fallback is already visible
+      });
+    }
+  }, { once: true });
+</script>
