@@ -1,43 +1,46 @@
-# Astro Starter Kit: Minimal
+# debjyotipaul.me
+
+Personal portfolio site for **Debjyoti Paul** — Staff Software Engineer with 10+ years of experience building scalable, user-first web applications.
+
+Live at [debjyotipaul.me](https://www.debjyotipaul.me)
+
+---
+
+## About
+
+I lead frontend development on payment flow products at **VISA Inc** — including Visa Direct and Visa Payments Limited — processing millions of cross-border transactions daily. I'm passionate about leveraging modern technologies, AI, and generative tools to create impactful software.
+
+**Tech I work with:**
+
+- **Frontend:** React, Angular, Vue, TypeScript, JavaScript, Micro-frontends, Webpack 5, Redux, SCSS
+- **Backend:** Java, Spring Boot, Node.js, Hibernate, MySQL, REST APIs, Microservices
+- **Tooling:** Git, CI/CD, Accessibility (WCAG AA/AAA), Cloud Computing, AI Agents
+
+---
+
+## Stack
+
+This site is built with:
+
+- [Astro](https://astro.build) — static site framework
+- [GSAP](https://gsap.com) — animations
+- [Lenis](https://lenis.darkroom.engineering) — smooth scrolling
+- Deployed on [Railway](https://railway.app)
+
+---
+
+## Local Development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev       # localhost:4321
+npm run build     # production build → ./dist/
+npm run preview   # preview production build locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## Contact
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Email: [connect@debjyotipaul.me](mailto:connect@debjyotipaul.me)
+- Site: [debjyotipaul.me](https://www.debjyotipaul.me)
